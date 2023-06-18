@@ -1,0 +1,51 @@
+
+version: "3.8"
+
+services:
+  nginx:
+    build:
+      context: .docker/nginx
+      args:
+        uid: ${PHP_UID}
+        gid: ${PHP_GID}
+    container_name: ${PROJECT_NAME}_nginx
+    ports:
+      - ${NGINX_LOCAL_PORT}:80
+    volumes:
+      - ./:/src:delegated
+    depends_on:
+      - php
+    networks:
+      main_network:
+        aliases:
+          - otus.local
+  php:
+    build:
+      args:
+        uname: ${PHP_UNAME}
+        uid: ${PHP_UID}
+        gid: ${PHP_GID}
+      context: .docker/php
+
+    container_name: ${PROJECT_NAME}_php
+    image: ${PROJECT_NAME}_php
+    restart: unless-stopped
+    working_dir: /src
+    volumes:
+      - ./.docker/php/php.ini:/usr/local/etc/php/php.ini
+      - ./:/src
+    environment:
+      COMPOSER_MEMORY_LIMIT: 2G
+      XDEBUG_CONFIG: client_host=${XDEBUG_REMOTE_HOST} client_port=${XDEBUG_STORM_PORT} remote_enable=1
+      PHP_IDE_CONFIG: serverName=${XDEBUG_STORM_SERVER_NAME}
+    networks:
+      - main_network
+
+networks:
+  main_network:
+    driver: bridge
+    name: ${PROJECT_NAME}_main_network
+    ipam:
+      driver: default
+      config:
+        - subnet: ${SUBNET_IP}/${SUBNET_MASK}

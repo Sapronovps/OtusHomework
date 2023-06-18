@@ -1,0 +1,27 @@
+{
+  "name": "sapronovps/otus-homework",
+  "description": "OtusHomework - выполнение ДЗ по курсу от OTUS.",
+  "type": "library",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Sapronovps\\Tests\\": "tests/",
+      "Sapronovps\\OtusHomework\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "SapronovPS"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "ext-pdo": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  }
+}

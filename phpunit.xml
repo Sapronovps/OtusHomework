@@ -1,0 +1,14 @@
+<phpunit
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        stopOnFailure="true"
+        failOnWarning="true">
+
+    <testsuites>
+        <testsuite name="OtusHomework">
+            <file>tests/HomeworkOneTest.php</file>
+        </testsuite>
+    </testsuites>
+</phpunit>
