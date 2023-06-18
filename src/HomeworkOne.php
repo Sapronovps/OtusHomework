@@ -25,7 +25,6 @@ final class HomeworkOne
     {
         if (abs($a) <= PHP_FLOAT_EPSILON) {
             throw new Exception('a не равно 0');
-
         }
 
         $D = $b * $b - 4 * $a * $c;

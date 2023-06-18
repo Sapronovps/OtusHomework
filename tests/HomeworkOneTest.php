@@ -90,4 +90,53 @@ class HomeworkOneTest extends TestCase
             $this->assertEquals('a не равно 0', $ex->getMessage(), 'Тест когда a = 0 не прошел.');
         }
     }
+
+    /**
+     * Тест когда дискриминант получился меньше чем -epsilon.
+     *
+     * @return void
+     * @throws Exception
+     */
+    public function testSix(): void
+    {
+        $calculator = new HomeworkOne();
+
+        $double = $calculator->solve(0.00000000001, 0, 1);
+
+        $this->assertNull($double->x1, 'Тест когда дискриминант получился меньше чем -epsilon не прошел.');
+        $this->assertNull($double->x2, 'Тест когда дискриминант получился меньше чем -epsilon0 не прошел.');
+    }
+
+    /**
+     * Тест когда a больше чем epsilon.
+     *
+     * @return void
+     * @throws Exception
+     */
+    public function testSeven(): void
+    {
+        $calculator = new HomeworkOne();
+
+        try {
+            $calculator->solve(0.0000000000000000000001, 2, 1);
+        } catch (Exception $ex) {
+            $this->assertEquals('a не равно 0', $ex->getMessage(), 'Тест когда a = 0 не прошел.');
+        }
+    }
+
+    /**
+     * Тест когда a float, но не больше чем epsilon.
+     *
+     * @return void
+     * @throws Exception
+     */
+    public function testEight(): void
+    {
+        $calculator = new HomeworkOne();
+
+        $double = $calculator->solve(0.001, 0.2, 0.1);
+
+        $this->assertEqualsWithDelta(-0.501256289338, $double->x1, 0.0000001, 'Тест для x^2+2x+1=0 не прошел.');
+        $this->assertEqualsWithDelta(-199.49874371066, $double->x2,0.0000001, 'Тест для x^2+2x+1=0 не прошел.');
+    }
 }
