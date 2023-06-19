@@ -136,7 +136,23 @@ class HomeworkOneTest extends TestCase
 
         $double = $calculator->solve(0.001, 0.2, 0.1);
 
-        $this->assertEqualsWithDelta(-0.501256289338, $double->x1, 0.0000001, 'Тест для x^2+2x+1=0 не прошел.');
-        $this->assertEqualsWithDelta(-199.49874371066, $double->x2,0.0000001, 'Тест для x^2+2x+1=0 не прошел.');
+        $this->assertEqualsWithDelta(-0.501256289338, $double->x1, 0.0000001, 'Тест когда a float, но не больше чем epsilon не прошел.');
+        $this->assertEqualsWithDelta(-199.49874371066, $double->x2, 0.0000001, 'Тест когда a float, но не больше чем epsilon не прошел.');
+    }
+
+    /**
+     * Тест x^2+12x+36=0 (когда 1 корень)
+     *
+     * @return void
+     * @throws Exception
+     */
+    public function testNine(): void
+    {
+        $calculator = new HomeworkOne();
+
+        $double = $calculator->solve(1, 12, 36);
+
+        $this->assertEquals(-6, $double->x1, 'Тест для x^2+12x+36=0 не прошел.');
+        $this->assertEquals(-6, $double->x2, 'Тест для x^2+12x+36=0 не прошел.');
     }
 }
