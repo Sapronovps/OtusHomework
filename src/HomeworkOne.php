@@ -23,6 +23,18 @@ final class HomeworkOne
      */
     public function solve(float $a, float $b, float $c): DoubleResult
     {
+        if (true === is_nan($a)) {
+            throw new Exception('a не число');
+        }
+
+        if (true === is_nan($b)) {
+            throw new Exception('b не число');
+        }
+
+        if (true === is_nan($c)) {
+            throw new Exception('c не число');
+        }
+
         if (abs($a) <= PHP_FLOAT_EPSILON) {
             throw new Exception('a не равно 0');
         }

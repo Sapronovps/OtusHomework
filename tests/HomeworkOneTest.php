@@ -155,4 +155,55 @@ class HomeworkOneTest extends TestCase
         $this->assertEquals(-6, $double->x1, 'Тест для x^2+12x+36=0 не прошел.');
         $this->assertEquals(-6, $double->x2, 'Тест для x^2+12x+36=0 не прошел.');
     }
+
+    /**
+     * Тест когда a === NAN (не число)
+     *
+     * @return void
+     * @throws Exception
+     */
+    public function testTen(): void
+    {
+        $calculator = new HomeworkOne();
+
+        try {
+            $calculator->solve(log(-1), 2, 1);
+        } catch (Exception $ex) {
+            $this->assertEquals('a не число', $ex->getMessage(), 'Тест когда a === NAN не прошел.');
+        }
+    }
+
+    /**
+     * Тест когда b === NAN (не число)
+     *
+     * @return void
+     * @throws Exception
+     */
+    public function testEleven(): void
+    {
+        $calculator = new HomeworkOne();
+
+        try {
+            $calculator->solve(1, log(-1), 1);
+        } catch (Exception $ex) {
+            $this->assertEquals('b не число', $ex->getMessage(), 'Тест когда b === NAN не прошел.');
+        }
+    }
+
+    /**
+     * Тест когда c === NAN (не число)
+     *
+     * @return void
+     * @throws Exception
+     */
+    public function testTwelve(): void
+    {
+        $calculator = new HomeworkOne();
+
+        try {
+            $calculator->solve(1, 2, log(-1));
+        } catch (Exception $ex) {
+            $this->assertEquals('c не число', $ex->getMessage(), 'Тест когда c === NAN не прошел.');
+        }
+    }
 }
