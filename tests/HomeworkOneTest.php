@@ -2,11 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Sapronovps\Tests;
-
-use Exception;
 use PHPUnit\Framework\TestCase;
-use Sapronovps\OtusHomework\HomeworkOne;
+use Sapronovps\OtusHomework\HomeworkOne\HomeworkOne;
 
 class HomeworkOneTest extends TestCase
 {

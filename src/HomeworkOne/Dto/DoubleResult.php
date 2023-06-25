@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Sapronovps\OtusHomework\Dto;
+namespace Sapronovps\OtusHomework\HomeworkOne\Dto;
 
 final class DoubleResult
 {

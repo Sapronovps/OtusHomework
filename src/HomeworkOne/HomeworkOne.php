@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Sapronovps\OtusHomework;
+namespace Sapronovps\OtusHomework\HomeworkOne;
 
 use Exception;
-use Sapronovps\OtusHomework\Dto\DoubleResult;
+use Sapronovps\OtusHomework\HomeworkOne\Dto\DoubleResult;
 
 /**
  * Otus - первое домашнее задание.
