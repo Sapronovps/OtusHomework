@@ -16,7 +16,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: php-actions/phpunit@v3
 
     - name: Cache Composer packages
       id: composer-cache
@@ -29,6 +28,7 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --ignore-platform-req=ext-libsodium
+    - uses: php-actions/phpunit@v3
 
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
