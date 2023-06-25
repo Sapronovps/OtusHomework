@@ -34,3 +34,7 @@ jobs:
 
     # - name: Run test suite
     #   run: composer run-script test
+
+  unit-tests:
+    - name: PHPUnit tests
+      uses: php-actions/phpunit@v3
