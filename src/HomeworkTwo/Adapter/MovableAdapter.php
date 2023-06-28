@@ -23,6 +23,12 @@ final class MovableAdapter implements MovableInterface
 
     public function getPosition(): Vector
     {
+        $position = $this->object->{self::POSITION_PROPERTY};
+
+        if (null === $position) {
+            throw new Exception('Невозможно сдвинуть объект, неккоретная позиция.');
+        }
+
         return $this->object->{self::POSITION_PROPERTY};
     }
 
@@ -43,6 +49,10 @@ final class MovableAdapter implements MovableInterface
         $direction = $this->object->{self::DIRECTION_PROPERTY};
         $directionsNumber = $this->object->{self::DIRECTIONS_NUMBER_PROPERTY};
         $velocity = $this->object->{self::VELOCITY_PROPERTY};
+
+        if (null === $velocity) {
+            throw new Exception('Невозможно сдвинуть объект, неккоретная мгновенная скорость.');
+        }
 
         if (null === $direction || null === $directionsNumber) {
             return new Vector(

@@ -52,7 +52,7 @@ class HomeworkTwoTest extends TestCase
             $moveCommand = new MoveCommand($movableAdapter);
             $moveCommand->execute();
         } catch (Throwable $ex) {
-            $expectedErrorMessage = 'Sapronovps\OtusHomework\HomeworkTwo\Adapter\MovableAdapter::getPosition(): Return value must be of type Sapronovps\OtusHomework\HomeworkTwo\Vector, null returned';
+            $expectedErrorMessage = 'Невозможно сдвинуть объект, неккоретная позиция.';
             $this->assertEquals($expectedErrorMessage, $ex->getMessage());
         }
     }
@@ -72,7 +72,7 @@ class HomeworkTwoTest extends TestCase
             $moveCommand = new MoveCommand($movableAdapter);
             $moveCommand->execute();
         } catch (Throwable $ex) {
-            $expectedErrorMessage = 'Attempt to read property "x" on null';
+            $expectedErrorMessage = 'Невозможно сдвинуть объект, неккоретная мгновенная скорость.';
             $this->assertEquals(
                 $expectedErrorMessage,
                 $ex->getMessage(),
