@@ -4,15 +4,18 @@ declare(strict_types=1);
 
 namespace Sapronovps\OtusHomework\HomeworkTwo\Adapter;
 
+use Exception;
 use Sapronovps\OtusHomework\HomeworkTwo\Vector;
 
+/**
+ * Адаптер для перемещения(движения) объекта.
+ */
 final class MovableAdapter implements MovableInterface
 {
     private const POSITION_PROPERTY = 'position';
     private const VELOCITY_PROPERTY = 'velocity';
     private const DIRECTION_PROPERTY = 'direction';
     private const DIRECTIONS_NUMBER_PROPERTY = 'directionsNumber';
-
 
     public function __construct(private readonly object $object)
     {
@@ -25,6 +28,13 @@ final class MovableAdapter implements MovableInterface
 
     public function setPosition(Vector $position): void
     {
+        if (true === is_nan($position->x)) {
+            throw new Exception('Координата x не число');
+        }
+        if (true === is_nan($position->y)) {
+            throw new Exception('Координата y не число');
+        }
+
         $this->object->{self::POSITION_PROPERTY} = $position;
     }
 

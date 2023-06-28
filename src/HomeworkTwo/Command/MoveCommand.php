@@ -6,6 +6,9 @@ namespace Sapronovps\OtusHomework\HomeworkTwo\Command;
 
 use Sapronovps\OtusHomework\HomeworkTwo\Adapter\MovableInterface;
 
+/**
+ * Команда для движения (изменения положения объекта).
+ */
 final class MoveCommand implements CommandInterface
 {
     public function __construct(private readonly MovableInterface $movable)

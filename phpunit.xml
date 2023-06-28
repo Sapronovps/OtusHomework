@@ -9,6 +9,7 @@
     <testsuites>
         <testsuite name="OtusHomework">
             <file>tests/HomeworkOneTest.php</file>
+            <file>tests/HomeworkTwoTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>
