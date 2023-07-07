@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Sapronovps\OtusHomework\HomeworkTwo\Adapter;
 
 use Exception;
+use Sapronovps\OtusHomework\HomeworkThree\Exception\MoveIncorrectPositionException;
+use Sapronovps\OtusHomework\HomeworkThree\Exception\MoveIncorrectVelocityException;
 use Sapronovps\OtusHomework\HomeworkTwo\Vector;
 
 /**
@@ -26,7 +28,7 @@ final class MovableAdapter implements MovableInterface
         $position = $this->object->{self::POSITION_PROPERTY};
 
         if (null === $position) {
-            throw new Exception('Невозможно сдвинуть объект, неккоретная позиция.');
+            throw new MoveIncorrectPositionException('Невозможно сдвинуть объект, неккоретная позиция.');
         }
 
         return $this->object->{self::POSITION_PROPERTY};
@@ -51,7 +53,7 @@ final class MovableAdapter implements MovableInterface
         $velocity = $this->object->{self::VELOCITY_PROPERTY};
 
         if (null === $velocity) {
-            throw new Exception('Невозможно сдвинуть объект, неккоретная мгновенная скорость.');
+            throw new MoveIncorrectVelocityException('Невозможно сдвинуть объект, неккоретная мгновенная скорость.');
         }
 
         if (null === $direction || null === $directionsNumber) {
