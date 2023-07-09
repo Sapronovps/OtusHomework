@@ -17,7 +17,7 @@ final class RotateCommand implements CommandInterface
 
     public function execute(): void
     {
-        $this->rotatable->setDirection(ceil(
+        $this->rotatable->setDirection((int)ceil(
             ($this->rotatable->getDirection() + $this->rotatable->getAngularVelocity()) % $this->rotatable->getDirectionsNumber()
         ));
     }

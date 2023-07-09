@@ -19,7 +19,7 @@ final class RotatableAdapter implements RotatableInterface
 
     public function getDirection(): int
     {
-        return $this->object->{self::DIRECTION_PROPERTY};
+        return (int)$this->object->{self::DIRECTION_PROPERTY};
     }
 
     public function setDirection(float $direction): void
@@ -29,11 +29,11 @@ final class RotatableAdapter implements RotatableInterface
 
     public function getAngularVelocity(): int
     {
-        return $this->object->{self::ANGULAR_VELOCITY_PROPERTY};
+        return (int)$this->object->{self::ANGULAR_VELOCITY_PROPERTY};
     }
 
     public function getDirectionsNumber(): int
     {
-        return $this->object->{self::DIRECTIONS_NUMBER_PROPERTY};
+        return (int)$this->object->{self::DIRECTIONS_NUMBER_PROPERTY};
     }
 }

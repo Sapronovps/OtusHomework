@@ -14,7 +14,9 @@ final class Spaceship
         public ?Vector $velocity = null,
         public ?float $direction = null,
         public ?float $angularVelocity = null,
-        public ?float $directionsNumber = null
+        public ?float $directionsNumber = null,
+        public int $fuelLevel = 0,
+        public int $fuelConsumption = 0
     )
     {
     }
