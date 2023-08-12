@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Sapronovps\OtusHomework\HomeworkFive;
+
 /**
  * IoC интерфейс.
  */

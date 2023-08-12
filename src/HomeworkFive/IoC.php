@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Sapronovps\OtusHomework\HomeworkFive;
 
 use Exception;
-use IoCInterface;
 
 class IoC implements IoCInterface
 {
