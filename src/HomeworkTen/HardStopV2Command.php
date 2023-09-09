@@ -10,10 +10,9 @@ class HardStopV2Command extends HardStopCommand implements ProcessorStateInterfa
 {
     public function next(ProcessorInterface $processor): ?ProcessorStateInterface
     {
-        $moveToState = new MoveToState();
-        $this->changeState($processor, $moveToState);
+        $this->changeState($processor, null);
 
-        return $moveToState;
+        return null;
     }
 
     public function changeState(ProcessorInterface $processor, ?ProcessorStateInterface $state): void

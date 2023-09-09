@@ -26,7 +26,7 @@ class Processor implements ProcessorInterface
      */
     public function run(): void
     {
-        while (null !== $this->state->next($this)) {}
+        while (null !== $this->state?->next($this)) {}
     }
 
     /**
