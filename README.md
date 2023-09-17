@@ -9,8 +9,9 @@
 6. Реализовано домашнее задание №6 - src/HomeworkSix
 7. Реализовано домашнее задание №7 - src/HomeworkSeven
 8. Реализовано домашнее задание №8 - src/HomeworkEight
-9. Реализовано домашнее задание №10 - src/HomeworkTen
-10. Реализовано домашнее задание №11 - src/HomeworkEleven
+9. Реализовано домашнее задание №9 - src/HomeworkNine
+10. Реализовано домашнее задание №10 - src/HomeworkTen
+11. Реализовано домашнее задание №11 - src/HomeworkEleven
 
 # Запуск unit тестов
 
