@@ -1,38 +1,27 @@
 <?php
 
-
-use Sapronovps\OtusHomework\HomeworkFive\IoC;
-use Sapronovps\OtusHomework\HomeworkTwelve\Command\StartMoveCommand;
-use Sapronovps\OtusHomework\HomeworkTwelve\Interpreter\Interpreter;
+use Sapronovps\OtusHomework\FinalWork\Core\Enum\EnumDocumentStatus;
+use Sapronovps\OtusHomework\FinalWork\Core\Enum\EnumWarehouseType;
+use Sapronovps\OtusHomework\FinalWork\Core\Reference\RefProduct;
+use Sapronovps\OtusHomework\FinalWork\Core\Reference\RefWarehouse;
+use Sapronovps\OtusHomework\FinalWork\Core\Service\DocumentSaverService;
+use Sapronovps\OtusHomework\FinalWork\Purchase\DocPurchase;
+use Sapronovps\OtusHomework\FinalWork\Purchase\PurchasableCommand;
+use Sapronovps\OtusHomework\FinalWork\Purchase\PurchaseDto;
+use Sapronovps\OtusHomework\FinalWork\Purchase\TabPurchaseProduct;
+use Sapronovps\OtusHomework\FinalWork\Purchase\TabPurchaseProductList;
 
 require '../vendor/autoload.php';
 
-$gameId = 1;
 
-$actionName = 'StartMoveCommand';
+$warehouse = new RefWarehouse(1, 'Обычный склад', EnumWarehouseType::REGULAR_WAREHOUSE);
+$product = new RefProduct(1, 'Лопата совковая');
 
-$ioC = new IoC();
-$ioC->resolve(IoC::IOC_REGISTER, $actionName . 'Types.Get', function () {
-    return new StartMoveCommand(new stdClass(), 3);
-});
+$purchaseDto = new PurchaseDto($warehouse, $product, 10);
 
+$purchasableCommand = new PurchasableCommand($purchaseDto);
+$purchasableCommand->execute();
 
-$gameObject = new stdClass();
-$gameObject->id = 1;
-$gameObject->initialVelocity = 0;
+$regWarehouseProductList = $purchasableCommand->getRegWarehouseProductList();
 
-$ioC->resolve(IoC::IOC_REGISTER, $gameObject->id . ':' . $gameId . ':Objects.Get', function () use ($gameObject) {
-    return $gameObject;
-});
-
-$order = new stdClass();
-$order->action = $actionName;
-$order->gameId = $gameId;
-$order->id = 1;
-$order->initialVelocity = 10;
-
-$interpreter = new Interpreter($gameId, $ioC);
-$command = $interpreter->interpret($order);
-$command->execute();
-
-echo $gameObject->initialVelocity;
+var_dump($regWarehouseProductList);
