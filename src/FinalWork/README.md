@@ -2,3 +2,6 @@
 
 1. Стиль архитектуры: Модульный многоуровневый монолит с закрытым типом.
 2. Бизнес-процессы: Поступление, Размещение, Отгрузка и Резерв на складе любого типа.
+
+# Схема
+![FightMicroservices.png](https://github.com/Sapronovps/OtusHomework/blob/main/src/FinalWork/img.png)
