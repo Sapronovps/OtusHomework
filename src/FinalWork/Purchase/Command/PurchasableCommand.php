@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Sapronovps\OtusHomework\FinalWork\Purchase;
+namespace Sapronovps\OtusHomework\FinalWork\Purchase\Command;
 
 use Sapronovps\OtusHomework\FinalWork\Core\Enum\EnumCellType;
 use Sapronovps\OtusHomework\FinalWork\Core\Enum\EnumDocumentStatus;
@@ -10,19 +10,23 @@ use Sapronovps\OtusHomework\FinalWork\Core\Interface\CommandInterface;
 use Sapronovps\OtusHomework\FinalWork\Core\Iterator\RegWarehouseProductList;
 use Sapronovps\OtusHomework\FinalWork\Core\Service\DocumentSaverService;
 use Sapronovps\OtusHomework\FinalWork\Core\Strategy\CellCalculatorContext;
+use Sapronovps\OtusHomework\FinalWork\Purchase\Document\DocPurchase;
+use Sapronovps\OtusHomework\FinalWork\Purchase\Dto\PurchaseDto;
+use Sapronovps\OtusHomework\FinalWork\Purchase\Iterator\TabPurchaseProductList;
+use Sapronovps\OtusHomework\FinalWork\Purchase\TablePartDocument\TabPurchaseProduct;
 
 /**
  * Команда для выполнения процесса "Поступление".
  */
 class PurchasableCommand implements CommandInterface
 {
+    private RegWarehouseProductList $regWarehouseProductList;
+
     public function __construct(
         private readonly PurchaseDto $purchaseDto
     )
     {
     }
-
-    private RegWarehouseProductList $regWarehouseProductList;
 
     public function getRegWarehouseProductList(): RegWarehouseProductList
     {

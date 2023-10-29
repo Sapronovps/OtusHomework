@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Sapronovps\OtusHomework\FinalWork\Purchase;
+namespace Sapronovps\OtusHomework\FinalWork\Purchase\Document;
 
 use Sapronovps\OtusHomework\FinalWork\Core\Enum\EnumDocumentStatus;
 use Sapronovps\OtusHomework\FinalWork\Core\Enum\EnumDocumentType;
 use Sapronovps\OtusHomework\FinalWork\Core\Exception\DocumentException;
 use Sapronovps\OtusHomework\FinalWork\Core\Interface\DocumentInterface;
 use Sapronovps\OtusHomework\FinalWork\Core\Register\RegWarehouseProduct;
+use Sapronovps\OtusHomework\FinalWork\Purchase\Iterator\TabPurchaseProductList;
 
 /**
  * Документ "Поступление".

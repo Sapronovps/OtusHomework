@@ -1,15 +1,11 @@
 <?php
 
-use Sapronovps\OtusHomework\FinalWork\Core\Enum\EnumDocumentStatus;
+
 use Sapronovps\OtusHomework\FinalWork\Core\Enum\EnumWarehouseType;
 use Sapronovps\OtusHomework\FinalWork\Core\Reference\RefProduct;
 use Sapronovps\OtusHomework\FinalWork\Core\Reference\RefWarehouse;
-use Sapronovps\OtusHomework\FinalWork\Core\Service\DocumentSaverService;
-use Sapronovps\OtusHomework\FinalWork\Purchase\DocPurchase;
-use Sapronovps\OtusHomework\FinalWork\Purchase\PurchasableCommand;
-use Sapronovps\OtusHomework\FinalWork\Purchase\PurchaseDto;
-use Sapronovps\OtusHomework\FinalWork\Purchase\TabPurchaseProduct;
-use Sapronovps\OtusHomework\FinalWork\Purchase\TabPurchaseProductList;
+use Sapronovps\OtusHomework\FinalWork\Purchase\Command\PurchasableCommand;
+use Sapronovps\OtusHomework\FinalWork\Purchase\Dto\PurchaseDto;
 
 require '../vendor/autoload.php';
 

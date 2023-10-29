@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Sapronovps\OtusHomework\FinalWork\Purchase;
+namespace Sapronovps\OtusHomework\FinalWork\Purchase\TablePartDocument;
 
 /**
  * Табличная часть документа "Поступление".

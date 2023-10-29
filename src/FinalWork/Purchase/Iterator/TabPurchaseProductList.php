@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Sapronovps\OtusHomework\FinalWork\Purchase;
+namespace Sapronovps\OtusHomework\FinalWork\Purchase\Iterator;
 
 use Countable;
 use Iterator;
+use Sapronovps\OtusHomework\FinalWork\Purchase\TablePartDocument\TabPurchaseProduct;
 
 /**
  * Итератор для табличной части "Товары" документа "Поступление".
