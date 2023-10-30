@@ -5,5 +5,8 @@
 3. Используемые шаблоны: команда, состояние, стратегия, состояние.
 2. Бизнес-процессы: Поступление, Размещение, Отгрузка и Резерв на складе любого типа.
 
-# Схема
-![FightMicroservices.png](https://github.com/Sapronovps/OtusHomework/blob/main/src/FinalWork/img.png)
+# Схема выбранного архитектурного стиля
+![img.png](https://github.com/Sapronovps/OtusHomework/blob/main/src/FinalWork/img.png)
+
+# UML состояний
+![img_1.png](https://github.com/Sapronovps/OtusHomework/blob/main/src/FinalWork/img_1.png)
