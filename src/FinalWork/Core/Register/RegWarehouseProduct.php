@@ -11,6 +11,7 @@ final class RegWarehouseProduct
     public const WAREHOUSE_ID_FIELD = 'warehouseId';
     public const CELL_ID_FIELD = 'cellId';
     public const PRODUCT_ID_FIELD = 'productId';
+    public const DOC_RESERVE_ID_FIELD = 'docReserveId';
     public const QUANTITY_FIELD = 'quantity';
 
     public function __construct(
@@ -21,7 +22,8 @@ final class RegWarehouseProduct
         public int $warehouseId,
         public int $cellId,
         public int $productId,
-        public int $quantity
+        public int $quantity,
+        public ?int $docReserveId = null
     )
     {
     }
