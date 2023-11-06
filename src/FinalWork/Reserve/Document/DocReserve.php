@@ -37,7 +37,7 @@ final class DocReserve implements DocumentInterface
 
     public function getType(): EnumDocumentType
     {
-        return EnumDocumentType::PURCHASE;
+        return EnumDocumentType::RESERVE;
     }
 
     public function getWarehouseId(): int

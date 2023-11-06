@@ -64,7 +64,8 @@ final class DocPurchase implements DocumentInterface
                 RegWarehouseProduct::WAREHOUSE_ID_FIELD => $this->warehouseId,
                 RegWarehouseProduct::CELL_ID_FIELD => $product->cellId,
                 RegWarehouseProduct::PRODUCT_ID_FIELD => $product->productId,
-                RegWarehouseProduct::QUANTITY_FIELD => $product->quantity
+                RegWarehouseProduct::QUANTITY_FIELD => $product->quantity,
+                RegWarehouseProduct::DOC_RESERVE_ID_FIELD => null,
             ];
         }
 

@@ -34,7 +34,7 @@ final class DocPlacement implements DocumentInterface
 
     public function getType(): EnumDocumentType
     {
-        return EnumDocumentType::PURCHASE;
+        return EnumDocumentType::PLACEMENT;
     }
 
     public function getWarehouseId(): int
@@ -61,14 +61,16 @@ final class DocPlacement implements DocumentInterface
                 RegWarehouseProduct::WAREHOUSE_ID_FIELD => $this->warehouseId,
                 RegWarehouseProduct::CELL_ID_FIELD => $product->sourceCellId,
                 RegWarehouseProduct::PRODUCT_ID_FIELD => $product->productId,
-                RegWarehouseProduct::QUANTITY_FIELD => -1 * $product->quantity
+                RegWarehouseProduct::QUANTITY_FIELD => -1 * $product->quantity,
+                RegWarehouseProduct::DOC_RESERVE_ID_FIELD => null,
             ];
 
             $data[] = [
                 RegWarehouseProduct::WAREHOUSE_ID_FIELD => $this->warehouseId,
                 RegWarehouseProduct::CELL_ID_FIELD => $product->targetCellId,
                 RegWarehouseProduct::PRODUCT_ID_FIELD => $product->productId,
-                RegWarehouseProduct::QUANTITY_FIELD => $product->quantity
+                RegWarehouseProduct::QUANTITY_FIELD => $product->quantity,
+                RegWarehouseProduct::DOC_RESERVE_ID_FIELD => null,
             ];
         }
 

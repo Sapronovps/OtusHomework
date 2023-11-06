@@ -16,6 +16,8 @@ use Sapronovps\OtusHomework\FinalWork\Core\State\CellStoreWarehouseShipmentState
  */
 class CellStoreWarehouseStrategy implements CellCalculatorInterface
 {
+    private ?RefCell $cell = null;
+
     public function __construct(
         private readonly EnumCellType $cellType
     )
@@ -25,11 +27,23 @@ class CellStoreWarehouseStrategy implements CellCalculatorInterface
     public function calculateCell(): RefCell
     {
         $state = match ($this->cellType->value) {
-            EnumCellType::PURCHASE->value => new CellStoreWarehousePurchaseState(),
-            EnumCellType::SHIPMENT->value => new CellStoreWarehouseShipmentState(),
+            EnumCellType::PURCHASE->value => new CellStoreWarehousePurchaseState($this),
+            EnumCellType::SHIPMENT->value => new CellStoreWarehouseShipmentState($this),
             default => throw new Exception('Магазин-склад не поддерживает тип ячеек: ' . $this->cellType->name),
         };
 
-        return $state->calculateCell();
+        $state->calculateCell();
+
+        return $this->getCell();
+    }
+
+    public function setCell(RefCell $cell): void
+    {
+        $this->cell = $cell;
+    }
+
+    public function getCell(): RefCell
+    {
+        return $this->cell;
     }
 }

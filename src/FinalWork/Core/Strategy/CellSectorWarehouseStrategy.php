@@ -17,6 +17,8 @@ use Sapronovps\OtusHomework\FinalWork\Core\State\CellSectorWarehouseShipmentStat
  */
 class CellSectorWarehouseStrategy implements CellCalculatorInterface
 {
+    private ?RefCell $cell = null;
+
     public function __construct(
         private readonly EnumCellType $cellType
     )
@@ -26,12 +28,24 @@ class CellSectorWarehouseStrategy implements CellCalculatorInterface
     public function calculateCell(): RefCell
     {
         $state = match ($this->cellType->value) {
-            EnumCellType::PURCHASE->value => new CellSectorWarehousePurchaseState(),
-            EnumCellType::PLACEMENT->value => new CellSectorWarehousePlacementState(),
-            EnumCellType::SHIPMENT->value => new CellSectorWarehouseShipmentState(),
+            EnumCellType::PURCHASE->value => new CellSectorWarehousePurchaseState($this),
+            EnumCellType::PLACEMENT->value => new CellSectorWarehousePlacementState($this),
+            EnumCellType::SHIPMENT->value => new CellSectorWarehouseShipmentState($this),
             default => throw new Exception('Секторный склад не поддерживает тип ячеек: ' . $this->cellType->name),
         };
 
-        return $state->calculateCell();
+        $state->calculateCell();
+
+        return $this->getCell();
+    }
+
+    public function setCell(RefCell $cell): void
+    {
+        $this->cell = $cell;
+    }
+
+    public function getCell(): RefCell
+    {
+        return $this->cell;
     }
 }

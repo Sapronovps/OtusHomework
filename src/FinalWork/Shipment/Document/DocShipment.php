@@ -37,7 +37,7 @@ final class DocShipment implements DocumentInterface
 
     public function getType(): EnumDocumentType
     {
-        return EnumDocumentType::PURCHASE;
+        return EnumDocumentType::SHIPMENT;
     }
 
     public function getWarehouseId(): int

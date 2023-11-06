@@ -16,6 +16,8 @@ use Throwable;
  */
 final class DocumentSaverService
 {
+    private static array $regWarehouseProductListHistory = [];
+
     public function save(DocumentInterface $document): ?RegWarehouseProductList
     {
         // Удалим старые проводки по документу, если такие есть
@@ -35,12 +37,19 @@ final class DocumentSaverService
 
             // ДЕЛАЕМ COMMIT
 
+            self::$regWarehouseProductListHistory[] = $regWarehouseProductList;
+
             return $regWarehouseProductList;
         } catch (Throwable $ex) {
             // ДЕЛАЕМ ROLLBACK и логируем ошибку
 
             return null;
         }
+    }
+
+    public static function getRegWarehouseProductListHistory(): array
+    {
+        return self::$regWarehouseProductListHistory;
     }
 
     private function deleteOldData(): void
@@ -65,6 +74,7 @@ final class DocumentSaverService
                 $row[RegWarehouseProduct::CELL_ID_FIELD],
                 $row[RegWarehouseProduct::PRODUCT_ID_FIELD],
                 $row[RegWarehouseProduct::QUANTITY_FIELD],
+                $row[RegWarehouseProduct::DOC_RESERVE_ID_FIELD]
             );
 
             $regWarehouseProductList->add($regWarehouseProduct);
